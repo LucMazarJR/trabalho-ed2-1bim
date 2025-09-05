@@ -19,11 +19,16 @@ function App() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     
-    const novoAluno = Object.fromEntries(formData.entries()) as unknown as Aluno
+    const dadosFormulario = Object.fromEntries(formData.entries()) as unknown as Aluno
     
-    if (!novoAluno.nome || !novoAluno.ra) {
+    if (!dadosFormulario.nome || !dadosFormulario.ra) {
       alert('Nome e RA são obrigatórios!')
       return
+    }
+    
+    const novoAluno = {
+      ...dadosFormulario,
+      resultado: Number(dadosFormulario.media) >= 6 ? 'Aprovado' : 'Reprovado'
     }
     
     const novosAlunos = [...alunos, novoAluno]
@@ -50,7 +55,6 @@ function App() {
               <Campo label='Sexo' type='text' id='sexo' placeholder='Digite aqui o sexo do aluno'/>
               <Campo label='Média' type='number' id='media' placeholder='Digite aqui a média do aluno'/>
             </div>
-            <Campo label='Resultado' type='select' id='resultado' placeholder='Selecione' opcoes={['Aprovado', 'Reprovado']}/>
             <button type='submit' className='bg-slate-900 text-white p-2 rounded-lg hover:bg-slate-950'>
               Adicionar Aluno
             </button>
