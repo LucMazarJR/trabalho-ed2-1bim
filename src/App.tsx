@@ -53,7 +53,7 @@ function App() {
             <div className='flex gap-24'>
               <Campo label='Idade' type='number' id='idade' placeholder='Digite aqui a idade do aluno'/>
               <Campo label='Sexo' type='text' id='sexo' placeholder='Digite aqui o sexo do aluno'/>
-              <Campo label='Média' type='number' id='media' placeholder='Digite aqui a média do aluno'/>
+              <Campo label='Média' type='number' id='media' placeholder='Digite aqui a média do aluno' step='0.1'/>
             </div>
             <button type='submit' className='bg-slate-900 text-white p-2 rounded-lg hover:bg-slate-950'>
               Adicionar Aluno
